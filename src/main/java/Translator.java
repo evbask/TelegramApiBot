@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Translator {
     private static Translator instance;
     private String key = "trnsl.1.1.20190331T211139Z.3b53466eb36697ee.621abba34589e6e66b5799a9500ebf9cfe32efce";
-    private String[] langs = {"en","ru"};
+    private String[] langs = {"en","ru"};   //поддерживаемые языки
 
 
     private Translator(){}

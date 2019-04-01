@@ -8,8 +8,11 @@ import java.io.IOException;
 
 public class Bot extends AbilityBot {
 
-    public Bot(String token, String username){
+    private Translator translator;
+
+    public Bot(String token, String username, Translator translator){
         super(token,username);
+        this.translator = translator;
     }
 
     public int creatorId() {
@@ -21,9 +24,7 @@ public class Bot extends AbilityBot {
         super.onUpdateReceived(update);
         Message message = update.getMessage();
         if(message!=null && message.hasText()){
-            Translator translator = Translator.getInstance();
             try {
-                System.out.println(translator.detectLang(message.getText()));
                 SendMessage(message,translator.translate(message.getText()));
             }catch(IOException e){
                 e.printStackTrace();

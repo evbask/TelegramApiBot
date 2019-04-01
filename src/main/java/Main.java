@@ -11,7 +11,8 @@ public class Main {
         try{
             ApiContextInitializer.init();
             TelegramBotsApi botsApi = new TelegramBotsApi();
-            Bot bot = new Bot(BOT_TOKEN, BOT_NAME);
+            Translator translator = Translator.getInstance();
+            Bot bot = new Bot(BOT_TOKEN, BOT_NAME, translator);
             botsApi.registerBot(bot);
         }catch(TelegramApiException e){
             e.printStackTrace();
